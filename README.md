@@ -2,7 +2,7 @@
 [Decipher](https://decipher.ac/) PoC(Proof of Contribution)
 
 ## Minor Changes
-* AccessRole Integrated with, AdminRole, OperatorRole
+* AccessControl Integrated with, AdminRole, OperatorRole
 * Token Naming with string(abi.encodePacked(name(), epoch())
 * Token Symbol with string(abi.encodePacked(symbol(), epoch())
 * Implemented BidAuction for English Auction
