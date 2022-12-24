@@ -78,7 +78,7 @@ contract ERC20Epochs is IERC20, IERC20Metadata {
         return _epoch.current();
     }
 
-    function createEpoch() public virtual returns (uint256) {
+    function _createEpoch() internal virtual returns (uint256) {
         address creator = msg.sender;
         uint256 currentEpoch = _epoch.current();
         uint256 currentTotalSupply = totalSupply();
