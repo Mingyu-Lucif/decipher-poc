@@ -1,19 +1,17 @@
-const hre = require("hardhat");
-
+const hre = require('hardhat');
 
 const main = async function (hre) {
-    const {deployments, getNamedAccounts} = hre;
+	const { deployments, getNamedAccounts } = hre;
 
-    const {deployer} = await getNamedAccounts();
-    const deployed = await hre.deployments.all();
+	const { deployer } = await getNamedAccounts();
+	const deployed = await hre.deployments.all();
 
-    await deployments.deploy('POCAuction', {
-        from: deployer,
-        args: [deployed.POC.address],
-        log: true,
-    });
+	await deployments.deploy('EnglishAuction', {
+		from: deployer,
+		args: [deployed.POC.address],
+		log: true,
+	});
 };
 
-
 module.exports = main;
-main.tags = ["POCAuction"];
+main.tags = ['EnglishAuction'];
