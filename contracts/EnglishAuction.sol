@@ -126,7 +126,8 @@ contract EnglishAuction{
 
         // 1. Check conditions.
         require(auction.status != Status.Ended);
-        require(msg.sender == auction.taker);
+        require(auction.endDttm < block.timestamp);
+        require(msg.sender == auction.bidder);
         require(msg.value >= auction.price);
 
         // 2. Maker gets {price} amount of Ethers from Taker.(Ethers: Taker → Maker)
@@ -141,6 +142,7 @@ contract EnglishAuction{
 
         // 4. Update Auction Information
         auction.status = Status.Ended;
+        auction.maker = msg.sender;
 
         // 5. Events
         emit AuctionEnded(id, auction.maker, auction.taker, auction.price);
